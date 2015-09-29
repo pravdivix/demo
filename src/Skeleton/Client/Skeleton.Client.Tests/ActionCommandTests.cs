@@ -47,7 +47,7 @@ namespace Skeleton.Client.Tests
 		{
 			bool invoked = false;
 
-			Action<Object> action = x => invoked = true;
+			Action<object> action = x => invoked = true;
 
 			ActionCommand command = new ActionCommand(action);
 

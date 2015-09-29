@@ -52,14 +52,8 @@ namespace Skeleton.Client.Tests
 
 			public string TrackingProperty
 			{
-				get
-				{
-					return trackingProperty;
-				}
-				set
-				{
-					SetProperty(ref trackingProperty, value);
-				}
+				get { return trackingProperty; }
+				set { SetProperty(ref trackingProperty, value); }
 			}
 		}
 	}

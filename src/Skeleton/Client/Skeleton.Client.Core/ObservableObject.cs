@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using Skeleton.Client.Core.Annotations;
 
 namespace Skeleton.Client.Core
 {
@@ -10,7 +9,6 @@ namespace Skeleton.Client.Core
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		[NotifyPropertyChangedInvocator]
 		protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propName = null)
 		{
 			if (EqualityComparer<T>.Default.Equals(field, value))

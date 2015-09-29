@@ -64,21 +64,4 @@ namespace Skeleton.Client.Core
 			return null;
 		}
 	}
-
-	public abstract class ViewModel<TModel> : ViewModel
-	{
-		private TModel model;
-		
-		public TModel Model
-		{
-			get
-			{
-				return model;
-			}
-			set
-			{
-				SetProperty(ref model, value);
-			}
-		}
-	}
 }

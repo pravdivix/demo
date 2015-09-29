@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-using Skeleton.Client.Core.Annotations;
 
 namespace Skeleton.Client.Core
 {
@@ -9,7 +8,7 @@ namespace Skeleton.Client.Core
 		private readonly Action<object> action;
 		private readonly Predicate<object> predicate;
 
-		public ActionCommand([NotNull] Action<object> action, Predicate<object> predicate = null)
+		public ActionCommand(Action<object> action, Predicate<object> predicate = null)
 		{
 			if (action == null)
 			{

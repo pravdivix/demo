@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using Skeleton.Client.Views;
-using Skeleton.Client.ViewModels;
+﻿using System.Windows;
 using Microsoft.Practices.Unity;
+using Skeleton.Client.ViewModels;
+using Skeleton.Client.Views;
 
 namespace Skeleton.Client
 {
 	/// <summary>
 	/// Interaction logic for App.xaml
 	/// </summary>
-	public partial class App : Application
+	public partial class App
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
