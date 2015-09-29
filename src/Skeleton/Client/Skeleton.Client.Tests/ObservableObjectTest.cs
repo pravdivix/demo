@@ -10,7 +10,7 @@ namespace Skeleton.Client.Tests
 	{
 		[Test]
 		[NUnit.Framework.Category("ObservableObject")]
-		public void IsINotifyPropertyChangedAssignableFromObservableObject()
+		public void INotifyPropertyChangedIsAssignableFromObservableObject()
 		{
 			Type observableObjectType = typeof(ObservableObject);
 			Assert.IsTrue(typeof(INotifyPropertyChanged).IsAssignableFrom(observableObjectType));
@@ -18,7 +18,15 @@ namespace Skeleton.Client.Tests
 
 		[Test]
 		[NUnit.Framework.Category("ObservableObject")]
-		public void IsNotifyPropertyChangedEventRaised()
+		public void ObservableObjectIsAbstract()
+		{
+			Type observableObjectType = typeof(ObservableObject);
+			Assert.IsTrue(observableObjectType.IsAbstract);
+		}
+
+		[Test]
+		[NUnit.Framework.Category("ObservableObject")]
+		public void PropertyChangedEventHandlerIsRaised()
 		{
 			ObservableObjectStub obj = new ObservableObjectStub();
 
@@ -36,14 +44,6 @@ namespace Skeleton.Client.Tests
 			{
 				Assert.Fail("NotifyPropertyChanged event not raised");
 			}
-		}
-
-		[Test]
-		[NUnit.Framework.Category("ObservableObject")]
-		public void IsObservableObjectAbstract()
-		{
-			Type observableObjectType = typeof(ObservableObject);
-			Assert.IsTrue(observableObjectType.IsAbstract);
 		}
 
 		private class ObservableObjectStub : ObservableObject
