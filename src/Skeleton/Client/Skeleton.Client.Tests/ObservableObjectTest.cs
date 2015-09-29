@@ -58,8 +58,7 @@ namespace Skeleton.Client.Tests
 				}
 				set
 				{
-					trackingProperty = value;
-					OnPropertyChanged();
+					SetProperty(ref trackingProperty, value);
 				}
 			}
 		}

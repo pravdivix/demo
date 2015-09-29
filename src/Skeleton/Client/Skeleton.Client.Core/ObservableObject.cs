@@ -10,6 +10,7 @@ namespace Skeleton.Client.Core
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
+		[NotifyPropertyChangedInvocator]
 		protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propName = null)
 		{
 			if (EqualityComparer<T>.Default.Equals(field, value))
@@ -24,7 +25,6 @@ namespace Skeleton.Client.Core
 			return true;
 		}
 
-		[NotifyPropertyChangedInvocator]
 		private void OnPropertyChanged(string propertyName)
 		{
 			PropertyChangedEventHandler handler = Volatile.Read(ref PropertyChanged);
