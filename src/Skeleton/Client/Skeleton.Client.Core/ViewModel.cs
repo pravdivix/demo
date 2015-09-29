@@ -34,7 +34,7 @@ namespace Skeleton.Client.Core
 		{
 			get
 			{
-				return OnValidate(columnName);
+				return Validate(columnName);
 			}
 		}
 
@@ -43,7 +43,7 @@ namespace Skeleton.Client.Core
 		/// </summary>
 		/// <param name="propertyName">The name of the property to validate.</param>
 		/// <returns>Returns a validation error, if any, otherwise returns null.</returns>
-		protected virtual string OnValidate(string propertyName)
+		protected virtual string Validate(string propertyName)
 		{
 			ValidationContext validationContext = new ValidationContext(this)
 			{
@@ -62,6 +62,23 @@ namespace Skeleton.Client.Core
 			}
 
 			return null;
+		}
+	}
+
+	public abstract class ViewModel<TModel> : ViewModel
+	{
+		private TModel model;
+		
+		public TModel Model
+		{
+			get
+			{
+				return model;
+			}
+			set
+			{
+				SetProperty(ref model, value);
+			}
 		}
 	}
 }
