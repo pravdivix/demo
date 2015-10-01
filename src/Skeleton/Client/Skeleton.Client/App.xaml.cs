@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using Microsoft.Practices.Unity;
+using Skeleton.Client.Models;
 using Skeleton.Client.ViewModels;
 using Skeleton.Client.Views;
 

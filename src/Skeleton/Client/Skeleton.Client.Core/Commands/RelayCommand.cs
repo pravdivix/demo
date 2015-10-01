@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Skeleton.Client.Core
+namespace Skeleton.Client.Core.Commands
 {
-	public sealed class ActionCommand : ICommand
+	public sealed class RelayCommand : ICommand
 	{
 		private readonly Action<object> action;
 		private readonly Predicate<object> predicate;
 
-		public ActionCommand(Action<object> action, Predicate<object> predicate = null)
+		public RelayCommand(Action<object> action, Predicate<object> predicate = null)
 		{
 			if (action == null)
 			{
@@ -19,7 +19,11 @@ namespace Skeleton.Client.Core
 			this.predicate = predicate;
 		}
 
-		public event EventHandler CanExecuteChanged;
+		public event EventHandler CanExecuteChanged
+		{
+			add { CommandManager.RequerySuggested += value; }
+			remove { CommandManager.RequerySuggested -= value; }
+		}
 
 		/// <summary>
 		/// Defines the method that determines whether the command can execute in its current state.

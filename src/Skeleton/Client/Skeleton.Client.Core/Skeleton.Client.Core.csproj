@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -42,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionCommand.cs" />
+    <Compile Include="Commands\Async\NotifyTaskCompletion.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Commands\Async\AsyncCommand.cs" />
+    <Compile Include="Commands\Async\AsyncCommandBase.cs" />
+    <Compile Include="Commands\Async\IAsyncCommand.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

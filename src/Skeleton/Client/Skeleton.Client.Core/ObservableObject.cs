@@ -23,7 +23,7 @@ namespace Skeleton.Client.Core
 			return true;
 		}
 
-		private void OnPropertyChanged(string propertyName)
+		protected void OnPropertyChanged(string propertyName)
 		{
 			PropertyChangedEventHandler handler = Volatile.Read(ref PropertyChanged);
 

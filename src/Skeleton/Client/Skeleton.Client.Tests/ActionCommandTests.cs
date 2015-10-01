@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using Skeleton.Client.Core;
+using Skeleton.Client.Core.Commands;
 
 namespace Skeleton.Client.Tests
 {
@@ -8,48 +8,48 @@ namespace Skeleton.Client.Tests
 	public class ActionCommandTests
 	{
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void CanExecuteIsTrueByDefault()
 		{
-			ActionCommand command = new ActionCommand(x => { });
+			RelayCommand command = new RelayCommand(x => { });
 			Assert.IsTrue(command.CanExecute(null));
 		}
 
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void CanExecuteOverloadExecutesFalsePredicate()
 		{
-			ActionCommand command = new ActionCommand(x => { }, y => (int)y == 1);
+			RelayCommand command = new RelayCommand(x => { }, y => (int)y == 1);
 			Assert.IsFalse(command.CanExecute(0));
 		}
 
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void CanExecuteOverloadExecutesTruePredicate()
 		{
-			ActionCommand command = new ActionCommand(x => { }, y => (int)y == 1);
+			RelayCommand command = new RelayCommand(x => { }, y => (int)y == 1);
 			Assert.IsTrue(command.CanExecute(1));
 		}
 
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void ConstructorThrowsExceptionIfActionParameterIsNull()
 		{
 			Assert.Throws<ArgumentNullException>(() =>
 			{
-				ActionCommand command = new ActionCommand(null);
+				RelayCommand command = new RelayCommand(null);
 			});
 		}
 
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void ExecuteInvokesAction()
 		{
 			bool invoked = false;
 
 			Action<object> action = x => invoked = true;
 
-			ActionCommand command = new ActionCommand(action);
+			RelayCommand command = new RelayCommand(action);
 
 			command.Execute(null);
 
@@ -57,7 +57,7 @@ namespace Skeleton.Client.Tests
 		}
 
 		[Test]
-		[Category("ActionCommand")]
+		[Category("RelayCommand")]
 		public void ExecuteOverloadInvokesActionWithParameter()
 		{
 			bool invoked = false;
@@ -68,7 +68,7 @@ namespace Skeleton.Client.Tests
 				invoked = true;
 			};
 
-			ActionCommand command = new ActionCommand(action);
+			RelayCommand command = new RelayCommand(action);
 
 			command.Execute(new object());
 
